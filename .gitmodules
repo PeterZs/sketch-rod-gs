@@ -1,0 +1,3 @@
+[submodule "submodules/diff-gaussian-rasterization-for-sketchrodgs"]
+	path = submodules/diff-gaussian-rasterization-for-sketchrodgs
+	url = https://github.com/haato-w/diff-gaussian-rasterization-for-sketchrodgs.git
