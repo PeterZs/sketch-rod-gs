@@ -1,5 +1,5 @@
 
-[Project page]() | [Paper]() | [Video]() | [Dataset+COLMAP (GB)]() <br>
+[Project page]() | [Paper]() | [Video](https://youtu.be/eaK0p0nU47g?si=sTGmfLNSeCYiJELJ) | [Dataset+COLMAP (GB)]() <br>
 
 ![Teaser image](assets/teaser.jpg)
 
