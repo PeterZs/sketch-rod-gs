@@ -4,11 +4,12 @@ import sys
 from enum import Enum, auto
 from typing import Final
 
+# isort: off
+import torch  # noqa: F401 (Needed from cpp "moving_primitives" module)
 import matplotlib.pyplot as plt
 import moving_primitives
 import numpy as np
 import rotating_primitives
-import torch  # noqa: F401 (Needed from cpp "moving_primitives" module)
 from create_polyline import cerate_line
 from gs_renderer import GaussianModel, init, render_no_grad
 from PySide6.QtCore import Qt, QTimer
@@ -30,6 +31,8 @@ from widgets.gl_pixel_line_widget import GLPixelLineWidget
 from widgets.gl_polyline_3d_widget import GLPolyline3DWidget
 from widgets.info_widget import InfoWidget
 from widgets.mode_widget import ModeWidget
+
+# isort: on
 
 # Window size
 W, H = 960, 540
