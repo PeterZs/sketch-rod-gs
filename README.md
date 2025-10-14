@@ -1,5 +1,5 @@
 
-[Project page]() | [Paper]() | [Video](https://youtu.be/eaK0p0nU47g?si=sTGmfLNSeCYiJELJ) | [Dataset+COLMAP (GB)]() <br>
+[Project page](https://haato-w.github.io/sketch-rod-gs-project-page/) | [Paper]() | [Video](https://youtu.be/eaK0p0nU47g?si=sTGmfLNSeCYiJELJ) | [Dataset (Google Drive)](https://drive.google.com/drive/folders/1QhOkshES3-ubzQtoMD1wOpd_6Vj45H0f?usp=sharing) <br>
 
 ![Teaser image](assets/teaser.jpg)
 
