@@ -5,8 +5,12 @@ from enum import Enum, auto
 from typing import Final
 
 import matplotlib.pyplot as plt
+import moving_primitives
 import numpy as np
+import rotating_primitives
 import torch  # noqa: F401 (Needed from cpp "moving_primitives" module)
+from create_polyline import cerate_line
+from gs_renderer import GaussianModel, init, render_no_grad
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import (
     QKeyEvent,
@@ -15,13 +19,8 @@ from PySide6.QtGui import (
 )
 from PySide6.QtWidgets import QApplication, QMainWindow
 from qasync import QEventLoop
-
-import moving_primitives
-import rotating_primitives
 from utils.camera import Camera
-from create_polyline import cerate_line
 from utils.fps_counter import Fps_Counter
-from gs_renderer import GaussianModel, init, render_no_grad
 from utils.move_and_hover import get_closest_polyline_idx, get_goal_pos
 from utils.polyline import PolyLine
 from widgets.cursor import CursorManager, CursorMode
@@ -456,7 +455,7 @@ if __name__ == "__main__":
 
     # ply_path = "gs_data/rope_sample_2.ply"
     # ply_path = "gs_data/rope_sample_2_without_depth.ply"
-    ply_path = "gs_data/looping_toy_30000.ply" # multi
+    ply_path = "gs_data/looping_toy_30000.ply"  # multi
     # ply_path = "gs_data/bicycle_with_chain_30000.ply"
     # ply_path = "gs_data/dinosaur_2_30000.ply" # multi
     # ply_path = "gs_data/street_light_1_30000.ply"

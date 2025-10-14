@@ -18,10 +18,9 @@ from diff_gaussian_rasterization_for_sketchrodgs import (
     GaussianRasterizer,
 )
 from plyfile import PlyData
-
 from utils.camera import Camera
 from utils.general_utils import build_scaling_rotation, inverse_sigmoid, strip_symmetric
-from utils.sh_utils import eval_sh, RGB2SH
+from utils.sh_utils import RGB2SH, eval_sh
 
 if torch.cuda.is_available():
     device = torch.device("cuda")
@@ -125,11 +124,11 @@ class GaussianModel:
             axis=1,
         )
         opacities = np.asarray(plydata.elements[0]["opacity"])[..., np.newaxis]
-        
+
         if random_color:
             fused_color = RGB2SH(torch.tensor(np.random.rand(xyz.shape[0], 3)).float().cuda())
             features = torch.zeros((xyz.shape[0], 3, (self.max_sh_degree + 1) ** 2)).float().cuda()
-            features[:, :3, 0 ] = fused_color
+            features[:, :3, 0] = fused_color
             features[:, 3:, 1:] = 0.0
         else:
             features_dc = np.zeros((xyz.shape[0], 3, 1))
@@ -160,10 +159,12 @@ class GaussianModel:
 
         self._xyz = torch.tensor(xyz, dtype=torch.float, device="cuda")
         if random_color:
-            self._features_dc = features[:,:,0:1].transpose(1, 2).contiguous()
-            self._features_rest = features[:,:,1:].transpose(1, 2).contiguous()
+            self._features_dc = features[:, :, 0:1].transpose(1, 2).contiguous()
+            self._features_rest = features[:, :, 1:].transpose(1, 2).contiguous()
         else:
-            self._features_dc = torch.tensor(features_dc, dtype=torch.float, device="cuda").transpose(1, 2).contiguous()
+            self._features_dc = (
+                torch.tensor(features_dc, dtype=torch.float, device="cuda").transpose(1, 2).contiguous()
+            )
             self._features_rest = (
                 torch.tensor(features_extra, dtype=torch.float, device="cuda").transpose(1, 2).contiguous()
             )
@@ -193,8 +194,16 @@ class GaussianModel:
         if random_color:
             self._opacity[:] = 1.0
 
+
 def init(
-    width: int, height: int, sh_degree: int, model_path: str, pos: list[float], up: list[float], to: list[float], random_color: bool
+    width: int,
+    height: int,
+    sh_degree: int,
+    model_path: str,
+    pos: list[float],
+    up: list[float],
+    to: list[float],
+    random_color: bool,
 ) -> tuple[Camera, GaussianModel]:
     camera = Camera(width, height, np.array(pos), np.array(up), np.array(to), device=device)
 

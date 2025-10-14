@@ -17,7 +17,6 @@ from OpenGL.GL import (
 )
 from PySide6.QtCore import Qt
 from PySide6.QtOpenGLWidgets import QOpenGLWidget
-
 from utils.rope_utils import pix2ndc
 
 

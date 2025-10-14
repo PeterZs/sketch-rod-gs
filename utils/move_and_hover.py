@@ -1,5 +1,4 @@
 import numpy as np
-
 from utils.camera import Camera
 
 THRESHOLD = 10
@@ -9,6 +8,8 @@ THRESHOLD = 10
 Converting polyline (N, 3) to pixel space (N, 3).
 Output: [x_pixel, y_pixel, z_ndc]
 """
+
+
 def project_polyline_to_screen(W: int, H: int, camera: Camera, polyline: np.ndarray) -> np.ndarray:
     width = W
     height = H

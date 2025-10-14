@@ -44,10 +44,10 @@ class GLAxisWidget(QOpenGLWidget):
         self.setAutoFillBackground(False)
 
     def initializeGL(self):
-        glClearColor(0.0, 0.0, 0.0, 0.0) # Background with alpha 0.
+        glClearColor(0.0, 0.0, 0.0, 0.0)  # Background with alpha 0.
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
-        glDisable(GL_DEPTH_TEST) # Depth test isn't needed.
+        glDisable(GL_DEPTH_TEST)  # Depth test isn't needed.
         glEnable(GL_LINE_SMOOTH)
         glLineWidth(2.0)
 

@@ -14,7 +14,7 @@ class ModeWidget(QWidget):
 
         # Font setting
         font = QFont()
-        font.setPointSize(14) 
+        font.setPointSize(14)
         font.setBold(True)
         self.mode_label.setFont(font)
 

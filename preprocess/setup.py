@@ -1,5 +1,5 @@
-from pybind11.setup_helpers import Pybind11Extension, build_ext
 import pybind11
+from pybind11.setup_helpers import Pybind11Extension, build_ext
 from setuptools import setup
 
 __version__ = "0.0.1"
@@ -15,10 +15,10 @@ ext_modules = [
             pybind11.get_include(),
             "/usr/include/eigen3",  # Path for Eigen
         ],
-        language='c++',
+        language="c++",
         cxx_std=17,
-        extra_compile_args=['-O3', '-std=c++17', '-fopenmp'],
-        extra_link_args=['-fopenmp'],
+        extra_compile_args=["-O3", "-std=c++17", "-fopenmp"],
+        extra_link_args=["-fopenmp"],
     ),
 ]
 
