@@ -1,5 +1,3 @@
-# Under Construction
-
 # SketchRodGS: Sketch-based Extraction of Slender Geometries for Animating Gaussian Splatting Scenes
 
 <!-- Authors -->
