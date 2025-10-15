@@ -33,14 +33,17 @@ url       = {https://doi.org/10.1145/3757376.3771403}
 ```
 
 ## Installation
-Our implementation is based on original 3D Gaussian Splatting by INRIA. Please also see their repository for Gaussian splatting setting up.<br><br>
-The repository contains submodules, thus please check it out with
+This repository is based on the original 3D Gaussian Splatting by INRIA.
+Since our implementation extends it with PySide6 viewer, pybind11 C++/CUDA modules, and other utilities,
+please also refer to the original 3DGS setup guide if you encounter environment-related issues.
+
+Clone this repository with submodules:
 ```
 # SSH
 git clone git@github.com:haato-w/sketch-rod-gs.git --recursive
 ```
 ```
-# SSH
+# HTTPS
 git clone 
 https://github.com/haato-w/sketch-rod-gs.git --recursive
 ```
@@ -57,10 +60,48 @@ conda env create --file environment.yml
 conda activate sketch-rod-gs
 ```
 
-### Setting Data
+### Data Setup
 Please set .ply 3DGS scene data into `gs_data` directory. While you can use arbitrary data, we release [our real scene datasets](https://drive.google.com/drive/folders/1QhOkshES3-ubzQtoMD1wOpd_6Vj45H0f?usp=sharing) that has skinny object.
 
-### Running
+Place your .ply 3DGS scene data under the gs_data directory.
+You can use any 3DGS data, but we also provide [our real-scene datasets](https://drive.google.com/drive/folders/1QhOkshES3-ubzQtoMD1wOpd_6Vj45H0f?usp=sharing)
+
+### Running the Viewer
 ```
-python viewer.py -m gs_data/"file name".ply
+python viewer.py gs_data/"file name".ply
 ```
+
+### Usage
+
+<div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eaK0p0nU47g?si=4vDd6yPrCMKehGYy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+There are three modes available:
+
+- **VIEWER:** Observe the scene from any viewpoint.  
+- **GUIDE_EDITOR:** This mode is used for drawing a sketch guide.  
+- **PLAY:** Interact with the generated polyline — pull and release to simulate motion.
+
+Below is a brief overview of controls:
+
+| Key / Mouse                 | Action                                    |
+| --------------------------- | ----------------------------------------- |
+| Mouse Drag                  | Orbit camera                              |
+| Wheel                       | Zoom in/out                               |
+| Arrow Key                   | Rotate camera                             |
+| `W`,`A`,`S`,`D` Key         | Move camera (parallel)                    |
+| `W`,`A`,`S`,`D` Key + Shift | Rotate camera                             |
+| `M` Key                     | Switch mode (Viewer / Sketch / Animation) |
+| `I` Key                     | Toggle information panel                  |
+
+## TODO
+- [ ] Improve stability of animation
+- [ ] Improve rendering speed
+- [ ] Enable multi-polyline simulation
+- [ ] Fix animation artifacts 
+
+## Contact
+If you have any questions or find issues, feel free to:
+- Open an Issue on GitHub, or
+-  Contact me via email: heart.watanabe.research[at]gmail.com
