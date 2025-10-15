@@ -73,7 +73,7 @@ python viewer.py gs_data/"file name".ply
 
 ### Usage
 
-**Please click and watch the demo video.**
+**Please click and watch the demo video.**<br>
 [![Demo Video](resources/youtube_thumbnail_with_icon.jpg)](https://youtu.be/eaK0p0nU47g?si=54fC0_AL-OYZkHY3)
 
 There are three modes available:
