@@ -73,9 +73,7 @@ python viewer.py gs_data/"file name".ply
 
 ### Usage
 
-<div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eaK0p0nU47g?si=4vDd6yPrCMKehGYy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
+[![Demo Video]](https://youtu.be/eaK0p0nU47g?si=54fC0_AL-OYZkHY3)
 
 There are three modes available:
 
