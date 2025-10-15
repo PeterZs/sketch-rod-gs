@@ -56,11 +56,12 @@ class CursorManager:
         self.current_cursor_name = name
 
     def register_default_cursors(self):
+        # You can set arbitrary svg file.
         cursor_configs = [
             (CursorMode.ARROW, "resources/arrow_cursor.svg", 50, (0.25, 0.05)),
             (CursorMode.PEN, "resources/pen.svg", 50, (0.05, 0.95)),
-            (CursorMode.PINCH_OPEN, "resources/pinch_open.svg", 65, (0.2, 0.3)),
-            (CursorMode.PINCH_CLOSE, "resources/pinch_close.svg", 65, (0.2, 0.3)),
+            (CursorMode.PINCH_OPEN, "resources/arrow_cursor.svg", 50, (0.25, 0.05)),
+            (CursorMode.PINCH_CLOSE, "resources/arrow_cursor.svg", 50, (0.25, 0.05)),
         ]
 
         for name, path, size, hotspot in cursor_configs:
