@@ -5,6 +5,7 @@ from enum import Enum, auto
 from typing import Final
 
 # isort: off
+import argparse
 import torch  # noqa: F401 (Needed from cpp "moving_primitives" module)
 import matplotlib.pyplot as plt
 import moving_primitives
@@ -456,91 +457,16 @@ if __name__ == "__main__":
     if random_color:
         SH_DEG = 0
 
-    # ply_path = "gs_data/rope_sample_2.ply"
-    # ply_path = "gs_data/rope_sample_2_without_depth.ply"
-    ply_path = "gs_data/looping_toy_30000.ply"  # multi
-    # ply_path = "gs_data/bicycle_with_chain_30000.ply"
-    # ply_path = "gs_data/dinosaur_2_30000.ply" # multi
-    # ply_path = "gs_data/street_light_1_30000.ply"
-    # ply_path = "gs_data/chain_30000.ply" # multi
-    # ply_path = "gs_data/desk_lamp_1_30000.ply"
-    # ply_path = "gs_data/desk_lamp_2_30000.ply"
-    # ply_path = "gs_data/koraidon_30000.ply" # multi
-    # ply_path = "gs_data/wire_art_1_30000.ply"
-    # ply_path = "gs_data/wire_art_2_2_30000.ply"
-    # ply_path = "gs_data/cone_bar_30000.ply"
-    # ply_path = "gs_data/swing_2_30000.ply" # multi
-    # ply_path = "gs_data/whale_30000.ply"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("ply_path")
+    args = parser.parse_args()
 
-    # For test
-    # pos = [10.0, 0.0, 0.0]
-    # up = [0, 1, 0]
-    # to = [0, 0, 1]
+    ply_path = args.ply_path
 
-    # Default
+    # Default Camera Position
     pos = [-0.085, -0.372, -2.796]
     up = [-0.168, -0.938, 0.304]
     to = [0.509, 1.933, 4.632]  # Be careful! This is "to" not "lookat".
-
-    # For teaser (bad)
-    # pos = [0.761, -2.650, 2.870]
-    # up = [-0.296, 0.156, -0.942]
-    # to = [-0.505, 1.751, 3.999]  # Be careful! This is "to" not "lookat".
-
-    # For teaser (looping toy)
-    # pos = [-1.004, 1.030, 1.219]
-    # up = [0.236, -0.842, -0.485]
-    # to = [1.549, -1.153, 6.252] # Be careful! This is "to" not "lookat".
-
-    # For bicycle with chain
-    # pos = [-0.133, 1.918, -3.661]
-    # up = [0.002, -0.994, -0.110]
-    # to = [0.334, 0.925, 5.315] # Be careful! This is "to" not "lookat".
-
-    # For comparison (zoom) (coat stand)
-    # pos = [0.543, 1.983, -0.142]
-    # up = [-0.172, -0.954, 0.247]
-    # to = [1.028, 3.051, 4.323] # Be careful! This is "to" not "lookat".
-
-    # For desk lamp 1
-    # pos = [3.868, -0.980, -0.045]
-    # up = [-0.452, -0.714, -0.534]
-    # to = [-3.139, 1.912, 2.012] # Be careful! This is "to" not "lookat".
-
-    # For cone bar
-    # pos = [-1.638, 2.405, -3.894]
-    # up = [0.206, -0.957, -0.203]
-    # to = [0.909, 1.224, 4.267] # Be careful! This is "to" not "lookat".
-
-    # For koraidon
-    # pos = [-3.883, -0.176, 0.182]
-    # up = [0.483, -0.535, -0.693]
-    # to = [3.184, 1.320, 3.956] # Be careful! This is "to" not "lookat".
-
-    # For chain
-    # pos = [-0.895, 4.080, -1.011]
-    # up = [0.005, -0.79, -0.602]
-    # to = [-0.072, -1.785, 6.780] # Be careful! This is "to" not "lookat".
-
-    # For street light 1
-    # pos = [-1.270, -0.970, -1.754]
-    # up = [-0.050, -0.998, 0.026]
-    # to = [-0.727, -0.686, 10.123] # Be careful! This is "to" not "lookat".
-
-    # For dinasour 2
-    # pos = [-2.256, -1.581, 3.097]
-    # up = [0.205, -0.383, -0.901]
-    # to = [1.246, 3.688, 1.653] # Be careful! This is "to" not "lookat".
-
-    # For swing 2
-    # pos = [3.601, 0.378, 0.011]
-    # up = [0.001, -0.968, -0.251]
-    # to = [-3.677, -0.248, 2.402] # Be careful! This is "to" not "lookat".
-
-    # For wire art 2
-    # pos = [-1.231, -0.021, 1.300]
-    # up = [0.029, -0.203, -0.979]
-    # to = [-1.443, 5.375, 0.176] # Be careful! This is "to" not "lookat".
 
     app = QApplication(sys.argv)
     loop = QEventLoop(app)
